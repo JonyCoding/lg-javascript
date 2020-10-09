@@ -1,3 +1,4 @@
+export {}
 class Lady{
     content = "hi,帅哥";
     sayHello(){
