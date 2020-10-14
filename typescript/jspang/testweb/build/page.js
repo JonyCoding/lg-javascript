@@ -1,14 +1,14 @@
-"use strict";
 /*
- * @Author: Jony
- *
- * @Date: 2020-10-09 23:08:28
- * @LastEditTime: 2020-10-09 23:09:14
- * @# Description:
- * @FilePath: /lg-javascript/Typescript/jspang/testweb/src/components.ts
+ * @Author: xie yanpeng
+ * @Date: 2020-10-10 09:08:52
+ * @LastEdit: enter your name
+ * @LastEditTime: 2020-10-12 17:40:38
+ * @Description: 
  */
-var Components;
-(function (Components) {
+define("components", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Footer = exports.Body = exports.Header = void 0;
     var Header = /** @class */ (function () {
         function Header() {
             var elem = document.createElement('div');
@@ -17,7 +17,7 @@ var Components;
         }
         return Header;
     }());
-    Components.Header = Header;
+    exports.Header = Header;
     var Body = /** @class */ (function () {
         function Body() {
             var elem = document.createElement('div');
@@ -26,7 +26,7 @@ var Components;
         }
         return Body;
     }());
-    Components.Body = Body;
+    exports.Body = Body;
     var Footer = /** @class */ (function () {
         function Footer() {
             var elem = document.createElement('div');
@@ -35,25 +35,19 @@ var Components;
         }
         return Footer;
     }());
-    Components.Footer = Footer;
-})(Components || (Components = {}));
-/*
- * @Author: Jony
- *
- * @Date: 2020-10-09 22:56:25
- * @LastEditTime: 2020-10-09 23:09:59
- * @# Description:
- * @FilePath: /lg-javascript/Typescript/jspang/testweb/src/page.ts
- */
-var Home;
-(function (Home) {
+    exports.Footer = Footer;
+});
+define("page", ["require", "exports", "components"], function (require, exports, components_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Page = void 0;
     var Page = /** @class */ (function () {
         function Page() {
-            new Components.Header();
-            new Components.Body();
-            new Components.Footer();
+            new components_1.Header();
+            new components_1.Body();
+            new components_1.Footer();
         }
         return Page;
     }());
-    Home.Page = Page;
-})(Home || (Home = {}));
+    exports.Page = Page;
+});
