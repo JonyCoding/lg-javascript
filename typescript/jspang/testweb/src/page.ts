@@ -1,22 +1,21 @@
-/*
- * @Author: Jony
- * 
- * @Date: 2020-10-09 22:56:25
- * @LastEditTime: 2020-10-09 23:14:36
- * @# Description: 
- * @FilePath: /lg-javascript/Typescript/jspang/testweb/src/page.ts
- */
-namespace Home{
-    // 嵌套
-    // export
+/* ============================================================================= 
+#
+# Author: xie yanpeng
+# Date: 2020-10-10 09:08:52
+# LastEdit: enter your name
+# LastEditTime: 2020-10-12 17:38:45
+# Description: 
+#
+============================================================================= */
 
+// export
+import {Header,Body,Footer} from './components'
 
-    export class Page{
-        constructor(){
-            new Components.Header();
-            new Components.Body();
-            new Components.Footer();
-        }
+export class Page {
+    constructor() {
+        new Header();
+        new Body();
+        new Footer();
     }
 }
 
