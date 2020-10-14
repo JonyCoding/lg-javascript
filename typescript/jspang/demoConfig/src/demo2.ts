@@ -1,29 +1,30 @@
-export {}
-class Lady{
-    content = 'hi,帅哥'
-    sayHello(){
-        return this.content
+// enum÷÷
+
+// const Status = {
+//     massage: 0,
+//     spa: 1,
+//     dabaojian: 2
+// }
+
+// 跟以上的相似，但是枚举类型可以反着查找，也可以自行定义
+enum Status{
+    massage,
+    spa,
+    dabaojian = 23
+}
+
+
+function getServe(status: number) {
+    if (status === Status.massage) {
+        return '按摩'
+    } else if (status === Status.spa) {
+        return 'SPA'
+    } else if (status === Status.dabaojian) {
+        return '大保健'
     }
 }
 
-class xiaojiejie extends Lady{
-    // 类的方法的重写
-    sayHello(){
-        return 'hi,honey'
-    }// 输出hi,honey
-    
-    // 如果注释掉，输出 hi,帅哥
-    
-    sayHello2(){
-        return super.sayHello()+'. 你好！'
-    }
+const result = getServe(23);
+console.log(result);
+console.log(Status[23]);
 
-    sayLove(){
-        return 'I love you'
-    }
-}
-
-const lili = new xiaojiejie()
-console.log("lili.sayHello()",lili.sayHello());
-console.log("lili.sayHello2()",lili.sayHello2());
-console.log("lili.sayLove()",lili.sayLove());
