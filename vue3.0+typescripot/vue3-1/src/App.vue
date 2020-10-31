@@ -2,7 +2,7 @@
  * @Author: xie yanpeng
  * @Date: 2020-10-14 13:46:49
  * @LastEdit: enter your name
- * @LastEditTime: 2020-10-14 14:26:49
+ * @LastEditTime: 2020-10-14 22:24:39
  * @Description: 
 -->
 <template>
@@ -23,25 +23,56 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, reactive } from "vue";
 
-export default defineComponent({
+<script lang="ts">
+import { defineComponent, ref, reactive, toRefs, onBeforeMount, onMounted, onBeforeUpdate, onBeforeUnmount } from "vue";
+
+export default {
   name: "App",
   setup() {
-    const girls = ref(["大脚", "刘英", "小红"]);
-    const selectGirl = ref("");
-    const selectGirlFun = (index: number) => {
-      selectGirl.value = girls.value[index];
-    };
+    interface DataProps {
+      girls: string[];
+      selectGirl: string;
+      selectGirlFun: Function;
+    }
+    const data = reactive({
+      girls: ["大脚", "刘英", "小红"],
+      selectGirl: "",
+      selectGirlFun: (index: number) => {
+        console.log(index);
+        data.selectGirl = data.girls[index];
+        console.log(data.selectGirl);
+      },
+    });
+
+    onBeforeMount(() => {
+      console.log("02-组建挂在到页面");
+    });
+    onMounted(() => {
+      console.log("03-组建挂在到页面");
+    });
+    onBeforeUpdate(()=>{
+      console.log("04-数据更新");
+    });
+    // 组建销毁之前
+    onBeforeUnmount(()=>{
+      console.log("object");
+    })
+
+    // const girls = ref(["大脚", "刘英", "小红"]);
+    // const selectGirl = ref("");
+    // const selectGirlFun = (index: number) => {
+    //   selectGirl.value = girls.value[index];
+    // };
     return {
-      girls,
-      selectGirl,
-      selectGirlFun,
+      // girls,
+      // selectGirl,
+      // selectGirlFun,
+      // 直接展开会没有响应式
+      ...toRefs(data),
     };
   },
-  components: {},
-});
+};
 </script>
 
 <style>
