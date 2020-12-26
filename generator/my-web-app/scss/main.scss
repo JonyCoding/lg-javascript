@@ -1,0 +1,15 @@
+$body-bg:#f9f9fb;
+$body-color:#333;
+
+body{
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: $body-bg;
+    color: $body-color;
+    text-align: center;
+    p{
+        color: blue;
+        font-size: 15px;
+    }
+}
