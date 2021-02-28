@@ -20,17 +20,20 @@
         let foo = 100
         console.log('foo',foo);
     </script>
-    <script type="module">
-        // console.log('foo',foo);
-    </script>
+    <!-- <script type="module">
+        console.log('foo',foo);
+    </script> -->
 
     <!-- ES module 中通过CORS的方式请求外部js模块 -->
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js" type="module"></script>
+    <!-- 不支持 -->
+    <!-- <script src="https://www.baidu.com" type="module"></script> -->
 
-
-    <!-- ES module 的script标签会延迟执行脚本(先渲染) -->
-    <script type="module">
-        alert("123")
+    
+    <!-- ES module 的script标签会延迟执行脚本(先渲染) 等同于在页面中使用defer属性 -->
+    <script type="module"  src="./demo.js">
+        // alert("123")
     </script>
+     <h4>需要显示的内容</h4>  
 </body>
 </html>
