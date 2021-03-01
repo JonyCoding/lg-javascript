@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/browser-es-module-loader@0.4.1/dist/babel-browser-build.js"></script>
+    把浏览器中不识别的es-module交给babel去转换
+    <br>
+    <script src="https://unpkg.com/browser-es-module-loader@0.4.1/dist/browser-es-module-loader.js"></script>
+    代码在支持esmodule的情况下被执行了两次
+    <br>
+    --------------
+    <br>
+    下面的代码只有在浏览器不支持module的时候去执行
+    <script nomodule src="https://unpkg.com/browser-es-module-loader@0.4.1/dist/babel-browser-build.js"></script>
+    <br>
+    <script nomodule src="https://unpkg.com/browser-es-module-loader@0.4.1/dist/browser-es-module-loader.js"></script>
+    <br>
+    <script nomodule>
+        alert('hello world')
+    </script>
+    为了避免这种情况所以新增加了script的新标签
+    <script type="module">
+        import {foo} from './module.js'
+        console.log(foo);
+    </script>
+</body>
+</html>

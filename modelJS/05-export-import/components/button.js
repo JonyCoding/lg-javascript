@@ -1,0 +1,1 @@
+export const button = 'This is a button'
