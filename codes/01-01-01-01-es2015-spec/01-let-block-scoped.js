@@ -1,10 +1,10 @@
 // let 声明的成员只会在所声明的块中生效 -------------------------------------------
 // if (true) {
-//   // var foo = 'zce'
-//   let foo = 'zce'
+//   var foo = 'zce'
+// //   let foo = 'zce'
 //   console.log(foo)
 // }
-
+// console.log('外面打印',foo)
 // let 在 for 循环中的表现 ---------------------------------------------------
 
 // for (var i = 0; i < 3; i++) {
@@ -23,13 +23,14 @@
 
 // let 应用场景：循环绑定事件，事件处理函数中获取正确索引 -----------------------------------------------------
 
-// var elements = [{}, {}, {}]
+var elements = [{}, {}, {}]
 // for (var i = 0; i < elements.length; i++) {
-//   elements[i].onclick = function () {
-//     console.log(i)
-//   }
+//     elements[i].onclick = function () {
+//         console.log(i)
+//     }
 // }
-// elements[2].onclick()
+// 事实上打印的都是全局作用域中的 i
+
 
 // var elements = [{}, {}, {}]
 // for (var i = 0; i < elements.length; i++) {
