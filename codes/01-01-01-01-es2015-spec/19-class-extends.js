@@ -12,6 +12,7 @@ class Person {
 
 class Student extends Person {
   constructor (name, number) {
+    // super永远指向父类
     super(name) // 父类构造函数
     this.number = number
   }

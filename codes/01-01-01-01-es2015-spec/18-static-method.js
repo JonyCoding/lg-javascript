@@ -9,7 +9,10 @@ class Person {
     console.log(`hi, my name is ${this.name}`)
   }
 
-  static create (name) {
+  // static create (name) {
+  //   return new Person(name)
+  // }
+  static creat (name){
     return new Person(name)
   }
 }

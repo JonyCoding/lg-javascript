@@ -1,8 +1,8 @@
 // Set 数据结构
-
+// 集合 内部的值不允许重复
 const s = new Set()
 
-s.add(1).add(2).add(3).add(4).add(2)
+s.add(1).add(2).add(3).add(4).add(2)  //忽略之前添加的值
 
 // console.log(s)
 

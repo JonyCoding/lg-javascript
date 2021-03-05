@@ -1,6 +1,6 @@
 // for...of 循环
 
-const arr = [100, 200, 300, 400]
+// const arr = [100, 200, 300, 400]
 
 // for (const item of arr) {
 //   console.log(item)
@@ -50,3 +50,18 @@ const arr = [100, 200, 300, 400]
 // for (const item of obj) {
 //   console.log(item)
 // }
+
+// const arr = [1,2,3,8,5,6]
+
+// for(const item of arr){
+//     console.log(item);
+// }
+
+const maps = new Map()
+maps.set('m1',1)
+maps.set('m2',3)
+maps.set('m3','2a')
+
+for(const [keys,value] of maps){
+    console.log(keys,value);
+}

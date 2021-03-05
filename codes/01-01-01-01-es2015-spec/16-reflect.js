@@ -1,5 +1,5 @@
 // Reflect 对象
-
+// 如果默认没有定义  那么就会调用 reflect 的方法
 // const obj = {
 //   foo: '123',
 //   bar: '456'

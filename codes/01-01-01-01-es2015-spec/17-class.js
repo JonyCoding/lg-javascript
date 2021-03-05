@@ -9,8 +9,10 @@
 // }
 
 class Person {
+  // 构造函数
   constructor (name) {
     this.name = name
+    this.age = 20
   }
 
   say () {
@@ -20,3 +22,4 @@ class Person {
 
 const p = new Person('tom')
 p.say()
+console.log(p.age);

@@ -41,7 +41,7 @@
 //   age: 20
 // }
 
-// const personProxy = new Proxy(person, {
+// const personProxy = new Proxy(, {
 //   deleteProperty (target, property) {
 //     console.log('delete', property)
 //     delete target[property]
@@ -96,22 +96,41 @@
 // console.log(person.name)
 
 // Proxy 方式更为合理
-const person2 = {
-  name: 'zce',
-  age: 20
+// const person2 = {
+//   name: 'zce',
+//   age: 20
+// }
+
+// const personProxy = new Proxy(person2, {
+//   get (target, property) {
+//     console.log('get', property)
+//     return target[property]
+//   },
+//   set (target, property, value) {
+//     console.log('set', property, value)
+//     target[property] = value
+//   }
+// })
+
+// personProxy.name = 'jack'
+
+// console.log(personProxy.name)
+
+const person3 = {
+  name:'jony',
+  age:20
 }
 
-const personProxy = new Proxy(person2, {
-  get (target, property) {
-    console.log('get', property)
+let person3Proxy = new Proxy(person3,{
+  get(target,property){
+    console.log(target,'---',property);
     return target[property]
   },
-  set (target, property, value) {
-    console.log('set', property, value)
+  set(target,property,value){
+    console.log(target,'---',property,'---',value);
     target[property] = value
   }
 })
-
-personProxy.name = 'jack'
-
-console.log(personProxy.name)
+console.log(person3Proxy.name); 
+person3Proxy.name = 'aaa'
+console.log(person3Proxy.name); 

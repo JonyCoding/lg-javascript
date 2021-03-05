@@ -1,4 +1,4 @@
-// 箭头函数
+ // 箭头函数
 
 // function inc (number) {
 //   return number + 1
