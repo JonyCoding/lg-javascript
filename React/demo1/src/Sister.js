@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import ServeItem from './ServeItem'
+import './Sister.css'
 
 class Sister extends Component {
   constructor(props) {
@@ -11,15 +13,29 @@ class Sister extends Component {
 
   render() {
     return (
+      // 注释
       <Fragment>
+        {/* 注释 */}
         <div>
-          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)}></input>{" "}
+          <label htmlFor="new-input">增加服务：</label>
+            <input 
+              id="new-input" 
+              className="addServe" 
+              value={this.state.inputValue} 
+              onChange={this.inputChange.bind(this)}
+              ref={(input)=>{
+                this.input = input
+              }}
+            >
+            </input>{" "}
           <button onClick={this.addList.bind(this)}>增加服务</button>
         </div>
-        <ul>
+        <ul ref={ul=>this.ul = ul}>
           {
               this.state.list.map((item,index)=>{
-                return (<li onClick={this.deleteItem.bind(this,index)} key={index+item}>{item}</li>)
+                return (
+                  <ServeItem key={index+item} index={index} content={item} list={this.state.list} deleteItem={this.deleteItem.bind(this)}></ServeItem>
+                )
               })
           }
         </ul>
@@ -30,13 +46,17 @@ class Sister extends Component {
     console.log(e.target.value);
     console.log(this);
     this.setState({
-        inputValue:e.target.value
+        inputValue:this.input.value
     })
   }
   addList(){
+    // 异步方法
     this.setState({
         list:[...this.state.list,this.state.inputValue],
         inputValue:''
+    },()=>{
+      // 状态更新后的回调函数
+      console.log(this.ul.querySelectorAll('li').length);
     })
   }
   deleteItem(index){
