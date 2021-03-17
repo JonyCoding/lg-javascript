@@ -19,6 +19,7 @@
         <input type="text" v-model="msg">
         <input type="text" v-model="count">
     </div>
+    <script src="./js/observer.js"></script>
     <script src="./js/vue.js"></script>
     <script>
         let vm = new VUE({
@@ -28,7 +29,7 @@
                 count:100
             }
         })
-        console.log(vm);
+        console.log(vm.msg);
     </script>
 </body>
 

@@ -1,3 +1,4 @@
+
 class VUE{
     constructor(options) {
         // 通过属性保存选项的数据
@@ -7,6 +8,7 @@ class VUE{
         // 把data中的成员转换成getter和setter，注入VUE实例
         this._proxyData(this.$data)
         // 调用observber对象，监听数据变化
+        new Observer(this.$data)
         // 调用compuler对象，解析指令和差值表达式
     }
     _proxyData(data){
