@@ -10,6 +10,7 @@ class VUE{
         // 调用observber对象，监听数据变化
         new Observer(this.$data)
         // 调用compuler对象，解析指令和差值表达式
+        new Compiler(this)
     }
     _proxyData(data){
         // 遍历所有的熟悉
