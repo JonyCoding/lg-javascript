@@ -1,0 +1,17 @@
+{
+  "name": "01-getting-started",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --mode development",
+    "web": "webpack --mode none"
+  },
+  "devDependencies": {
+    "css-loader": "^5.2.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.6.0"
+  }
+}
