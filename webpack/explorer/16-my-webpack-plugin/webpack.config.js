@@ -4,6 +4,28 @@ const {
 } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+class MyPlugin {
+    apply(compiler) {
+        console.log('myplugin 启动')
+        // webpack核心对象，包含配置信息
+        compiler.hooks.emit.tap('Mypugin',compilation=>{
+            // 打包的上下文
+            for(const name in compilation.assets){
+                console.log(compilation.assets[name].source());
+                if(name.endsWith('.js')){
+                    const content = compilation.assets[name].source()
+                    const wothoutComments = content.replace(/\/\*\*+\*\//g,'')
+                    compilation.assets[name] = {
+                        source :()=>wothoutComments,
+                        size:()=>wothoutComments.length
+                    }
+                }
+            }
+            
+        })
+    }
+}
 module.exports = {
     // 打包入口文件
     entry: './src/main.js',
@@ -42,6 +64,7 @@ module.exports = {
             patterns: [
                 'public'
             ],
-        })
+        }),
+        new MyPlugin()
     ]
 }

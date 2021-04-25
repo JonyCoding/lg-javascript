@@ -4,6 +4,8 @@ const {
 } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+
 module.exports = {
     // 打包入口文件
     entry: './src/main.js',
@@ -16,6 +18,28 @@ module.exports = {
         path: path.join(__dirname, 'output'),
         // publicPath: 'output/'
     },
+
+    // dev-tools
+    devtools:'eval',
+
+    // dev server
+    // devServer: {
+    //     // 指定静态资源目录
+    //     contentBase: './public',
+    //     proxy: {
+    //         '/api': {
+    //             target: 'https://api.github.com',
+    //             pathRewrite: {
+    //                 "^/api": ""
+    //             },
+    //         },
+    //         // 不能使用licalhost:8080作为请求主机名
+    //         changeOrigin: true
+    //     }
+    // },
+
+
+
     module: {
         rules: [{
             test: /.md$/,
@@ -38,10 +62,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'about.html'
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                'public'
-            ],
-        })
+        // 开发过程中不会使用
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         'public'
+        //     ],
+        // }),
     ]
 }
