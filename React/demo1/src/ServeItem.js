@@ -6,6 +6,7 @@ class ServeItem extends Component {
         super(props)
         this.deleteItem=this.deleteItem.bind(this)
     }
+    
     render() { 
         return ( 
             <li onClick={this.deleteItem}>{this.props.avname}为你服务：{this.props.content}</li>
