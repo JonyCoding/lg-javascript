@@ -1,9 +1,5 @@
-import {
-    init
-} from 'snabbdom/build/init';
-import {
-    h
-} from 'snabbdom/build/h'
+import {init} from 'snabbdom/build/init';
+import { h } from 'snabbdom/build/h'
 
 var patch = init([
 
@@ -16,7 +12,7 @@ let app = document.querySelector('#app')
 // 第一个参数：旧的vnode：可以是dom元素
 // 第二个参数：新的vNode
 // 返回一个VNode
-let oldVnode = patch(app,vnode)
+let oldVnode = patch(app, vnode)
 
-vnode = h('div#container.xxx','hello Snobbdom')
-patch(oldVnode,vnode)
+vnode = h('div#container.xxx', 'hello Snobbdom')
+patch(oldVnode, vnode)
