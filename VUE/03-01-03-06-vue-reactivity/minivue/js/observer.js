@@ -31,7 +31,9 @@ class Observer {
           return
         }
         val = newValue
-        that.walk(newValue)
+        // 保证新赋值的对象也是响应式的
+        // this的指向发生了变化，this指向的是data
+        that.walk(newValue) 
         // 发送通知
         dep.notify()
       }

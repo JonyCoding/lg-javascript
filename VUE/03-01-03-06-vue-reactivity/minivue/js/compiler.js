@@ -6,8 +6,10 @@ class Compiler {
   }
   // 编译模板，处理文本节点和元素节点
   compile (el) {
-    let childNodes = el.childNodes
+    // 子节点
+    let childNodes = el.childNodes // 伪数组
     Array.from(childNodes).forEach(node => {
+      console.log([node])
       // 处理文本节点
       if (this.isTextNode(node)) {
         this.compileText(node)
